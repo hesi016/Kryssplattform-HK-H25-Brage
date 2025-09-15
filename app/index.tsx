@@ -4,7 +4,7 @@ import Post from "@/components/Post";
 import PostFormModal from "@/components/PostFormModal";
 import { PostData } from "@/types/post";
 import { getData, storeData } from "@/utils/local-storage";
-import { Stack, router } from "expo-router";
+import { Stack } from "expo-router";
 import { useEffect, useState } from "react";
 
 export default function HomeScreen() {
@@ -28,26 +28,21 @@ export default function HomeScreen() {
     getPostsFromLocal();
   }, []);
 
-  
   return (
     <View style={styles.mainContainer}>
       <Stack.Screen
         options={{
-          headerShown: true,
-          headerBackVisible: false,
-          headerLeft: () => (
-            <Pressable onPress={() => router.push("/declarations")} style={{ paddingHorizontal: 12, paddingVertical: 6 }}>
-              <Text>Info</Text>
-            </Pressable>
-          ),
           headerRight: () => (
-            <Pressable onPress={() => setIsModalVisible(true)} style={{ paddingHorizontal: 12, paddingVertical: 6 }}>
+            <Pressable
+              onPress={() => {
+                setIsModalVisible(true);
+              }}
+            >
               <Text>Nytt innlegg</Text>
             </Pressable>
           ),
         }}
       />
-      
       <PostFormModal
         isVisible={isModalVisible}
         setIsVisible={setIsModalVisible}
@@ -67,7 +62,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 30,
+    paddingTop: 12,
   },
   post: {
     backgroundColor: "white",

@@ -1,14 +1,38 @@
+import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function InfoDetails() {
+export default function DeclarationsPage() {
   return (
     <View style={style.mainContainer}>
-      <View style={style.frame}>
-
-    
-      <Text style={style.frameText}> Dette er en brukbar og god app.{"\n"}
-      Det er nesten litt ekkelt hvor bra den er!</Text>
+      <View style={{ marginTop: 16 }}>
+        <Text style={[style.text, { fontWeight: "700", fontSize: 20 }]}>
+          Velkommen til vår revolusjonerende app!
+        </Text>
+        <View style={{ marginTop: 8 }}>
+          <Text style={style.text}>
+            Denne fantastiske kreasjonen er resultatet av et enestående
+            samarbeid mellom foreleser og studenter i faget TDS200.
+          </Text>
+          <Text style={[style.text, { marginTop: 6 }]}>
+            Funksjonaliteten som er på utstilling i denne appen er banebrytende
+            på flere plan. Vi tar i bruk native funksjonalitet på måter man
+            tidligere bare kunne drømme om.
+          </Text>
+          <Text style={style.text}>
+            Måten vi integrerer mot Firebase er utenfor menneskets forståelse!
+          </Text>
+          <Text style={[style.text, { marginTop: 6 }]}>
+            Vi advarer også om at hvis du graver i materien til denne appen kan
+            bivirkninger slik som midlertidig blindhet som følge av hvor
+            blendende fantastisk appen er, eller hjerteflimmer av hvor spennende
+            det er å bruke appen.
+          </Text>
+          <Text style={style.text}>Bruk appen på eget ansvar.</Text>
+          <Link href="https://github.com/studBrage">
+            Les mer om skaperen bak appen her
+          </Link>
         </View>
+      </View>
     </View>
   );
 }
@@ -16,31 +40,11 @@ export default function InfoDetails() {
 const style = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#7299bd"
+    paddingHorizontal: 24,
   },
-
-  frame:  {
-    backgroundColor: "#fff",   // hvit boble
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-    borderRadius: 15,          // runde hjørner
-    maxWidth: "90%",           // så den ikke fyller hele skjermen
-    shadowColor: "#000",       // skygge (kun iOS/Android med elevation)
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 7,
-    elevation: 3,   
+  text: {
+    textAlign: "left",
   },
-
-  frameText: {
-    fontSize: 20 ,
-    lineHeight: 22,
-    color: "#333",
-    textAlign: "center"
-  }
-
-
-  
 });
